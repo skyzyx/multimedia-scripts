@@ -12,6 +12,6 @@ You can use these to write Automator-based services, for example.
 
 ## Prerequisites
 
-* [SublerCLI](https://bitbucket.org/galad87/sublercli)
+* [SublerCLI](https://bitbucket.org/galad87/sublercli) (at `/usr/local/bin/SublerCLI`)
 * [Homebrew](https://brew.sh)
 * Install the `Brewfile`
