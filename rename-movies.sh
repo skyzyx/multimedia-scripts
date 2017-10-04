@@ -1,9 +1,9 @@
 #! /usr/bin/env bash
-file=$(readlink -f $1);
-_f=$(basename $file);
-_d=$(dirname $file);
+file=$(readlink -f "$1");
+_f=$(basename "$file");
+_d=$(dirname "$file");
 
-echo "Processing $1...";
+echo "Processing $file...";
 data="$(/usr/local/bin/SublerCLI -source "$file" -listmetadata)";
 name="$(echo "$data" | grep "^Name:" | sed -e "s/^Name: //")";
 hd="$(echo "$data" | grep "^HD Video: " | sed -e "s/^HD Video: //")"
