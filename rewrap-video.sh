@@ -1,8 +1,8 @@
 #! /usr/bin/env bash
-file=$(readlink -f "$1");
-_f=$(basename "$file");
-_d=$(dirname "$file");
-_e="$(echo ${_f##*.} | tr '[:upper:]' '[:lower:]')"
+file=$(/usr/local/opt/coreutils/libexec/gnubin/readlink -f "$1");
+_f=$(/usr/local/opt/coreutils/libexec/gnubin/basename "$file");
+_d=$(/usr/local/opt/coreutils/libexec/gnubin/dirname "$file");
+_e="$(echo ${_f##*.} | /usr/local/opt/coreutils/libexec/gnubin/tr '[:upper:]' '[:lower:]')"
 
 echo "Processing $file...";
 
@@ -10,12 +10,12 @@ case $_e in
     mkv)
         echo "mkv";
         data="$(mkvinfo "$file")"
-        aac="$(echo -n "$data" | grep "Codec ID:" | grep "AAC" | wc -l)";
+        aac="$(echo -n "$data" | /usr/bin/grep "Codec ID:" | /usr/bin/grep "AAC" | /usr/local/opt/coreutils/libexec/gnubin/wc -l)";
         ;;
     mp4|m4v)
         echo "mp4";
         data="$(mp4info "$file")"
-        aac=$(echo -n "$data" | grep "MPEG-4 AAC" | wc -l);
+        aac=$(echo -n "$data" | /usr/bin/grep "MPEG-4 AAC" | /usr/local/opt/coreutils/libexec/gnubin/wc -l);
         ;;
 esac
 

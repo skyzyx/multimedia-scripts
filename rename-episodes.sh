@@ -1,14 +1,14 @@
 #! /usr/bin/env bash
-file=$(readlink -f "$1");
-_f=$(basename "$file");
-_d=$(dirname "$file");
+file=$(/usr/local/opt/coreutils/libexec/gnubin/readlink -f "$1");
+_f=$(/usr/local/opt/coreutils/libexec/gnubin/basename "$file");
+_d=$(/usr/local/opt/coreutils/libexec/gnubin/dirname "$file");
 
 echo "Processing $file...";
 data="$(/usr/local/bin/SublerCLI -source "$file" -listmetadata)";
-title="$(echo "$data" | grep "^Name:" | sed -e "s/^Name: //")";
-season="$(echo "$data" | grep "^TV Season: " | sed -e "s/TV Season: //")";
-episode="$(echo "$data" | grep "^TV Episode #: " | sed -e "s/TV Episode #: //")";
-hd="$(echo "$data" | grep "^HD Video: " | sed -e "s/^HD Video: //")"
+title="$(echo "$data" | /usr/bin/grep "^Name:" | /usr/local/opt/gnu-sed/libexec/gnubin/sed -e "s/^Name: //")";
+season="$(echo "$data" | /usr/bin/grep "^TV Season: " | /usr/local/opt/gnu-sed/libexec/gnubin/sed -e "s/TV Season: //")";
+episode="$(echo "$data" | /usr/bin/grep "^TV Episode #: " | /usr/local/opt/gnu-sed/libexec/gnubin/sed -e "s/TV Episode #: //")";
+hd="$(echo "$data" | /usr/bin/grep "^HD Video: " | /usr/local/opt/gnu-sed/libexec/gnubin/sed -e "s/^HD Video: //")"
 
 case $hd in
     2) resolution="1080p";;
@@ -16,6 +16,6 @@ case $hd in
     *) resolution="480p";;
 esac
 
-pattern="$season.$(printf "%02d" $episode) - $title (${resolution}).mp4";
+pattern="$season.$(/usr/local/opt/coreutils/libexec/gnubin/printf "%02d" $episode) - $title (${resolution}).mp4";
 
-mv -v "$_d/$_f" "$_d/$pattern";
+/usr/local/opt/coreutils/libexec/gnubin/mv -v "$_d/$_f" "$_d/$pattern";

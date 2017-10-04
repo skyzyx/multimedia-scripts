@@ -9,3 +9,4 @@
 brew "coreutils"
 brew "ffmpeg"
 brew "mp4v2"
+brew "gnu-sed"
