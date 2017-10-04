@@ -20,9 +20,15 @@ You can use these to write Automator-based services, for example.
 
 ### `rename-movies.sh`
 
-After you have added metadata using Subler (or similar), look inside the media file to find the title of the movie and its resolution, and renames the file.
+After you have added metadata using Subler (or similar), look inside the media file to find the title of the movie and its resolution, and rename the file.
 
 **Pattern:** `${TITLE} (${RESOLUTION}).mp4` (e.g., _Something in the Public Domain (480p).mp4_)
+
+### `rename-episodes.sh`
+
+After you have added metadata using Subler (or similar), look inside the media file to find the title of the episode, season number, episode number, and its resolution, and rename the file.
+
+**Pattern:** `${SEASON}.${EPISODE} - ${TITLE} (${RESOLUTION}).mp4` (e.g., _1.01 - Pilot (1080p).mp4_)
 
 ### `rewrap-video.sh`
 
